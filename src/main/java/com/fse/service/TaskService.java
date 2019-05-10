@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.fse.model.ParentTask;
 import com.fse.model.Task;
+import com.fse.model.Task;
 
 public interface TaskService {
 	
@@ -16,5 +17,15 @@ public interface TaskService {
 	
 	public List<ParentTask> getAllParentTask();
 
+	public ParentTask addParentTask(ParentTask pt);
 	
+	public List<Task> getAllTaskOrderByPriority();
+	
+	public List<Task> getAllTaskOrderByStartDate();
+		
+		public List<Task> getAllTaskOrderByEndDate();
+		
+		public List<Task> getAllTaskOrderByStatus();
+		
+		public List<Task> findByProjectid(int projectId);
 }
