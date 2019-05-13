@@ -11,7 +11,7 @@ public interface TaskService {
 	
 	public List<Task> getAllTask();
 	
-	public boolean addTask(Task task);
+	public Task addTask(Task task);
 	
 	public Optional<Task> deleteTask(int id );
 	
@@ -28,4 +28,6 @@ public interface TaskService {
 		public List<Task> getAllTaskOrderByStatus();
 		
 		public List<Task> findByProjectid(int projectId);
+		
+		public int countByCompleted(int projectId);
 }

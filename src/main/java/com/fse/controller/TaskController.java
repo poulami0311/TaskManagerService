@@ -33,7 +33,7 @@ public class TaskController {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="addTask",method=RequestMethod.POST,consumes="application/json")
-	public boolean addTask(@RequestBody Task task) {
+	public Task addTask(@RequestBody Task task) {
 		
 			
 		return taskService.addTask(task);
@@ -82,5 +82,15 @@ public class TaskController {
 	public List<Task> findByProjectId(@PathVariable int projectId){
 		
 		return taskService.findByProjectid(projectId);
+	}
+	
+	@RequestMapping(value="countByProjectid/{projectId}")
+	public int countByProjectid(@PathVariable int projectId) {
+		return taskService.findByProjectid(projectId).size();
+	}
+	
+	@RequestMapping(value="countCompleted/{projectId}")
+	public int countCompleted(@PathVariable int projectId) {
+		return taskService.countByCompleted(projectId);
 	}
 }

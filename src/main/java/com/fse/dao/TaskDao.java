@@ -34,6 +34,10 @@ public interface TaskDao extends JpaRepository<Task, Integer>{
 	public List<Task> findByProject_ProjectId(int projectId);
 	
 	@Transactional
-	@Query("SELECT Count(*) from Task t where t.deleteFlag =0 and  t.id = ?1")
+	@Query("SELECT Count(*) from Task t where t.project.projectId  =?1 and t.status=1")
+	public int countByCompleted(int projectId);
+	
+	@Transactional
+	@Query("SELECT Count(*) from Task t where t.status =0 and  t.id = ?1")
 	int countExistingTask(int id);
 }

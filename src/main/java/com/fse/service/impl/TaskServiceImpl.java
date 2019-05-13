@@ -39,7 +39,7 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public boolean addTask(Task task) {
+	public Task addTask(Task task) {
 		// TODO Auto-generated method stub
 		
 	
@@ -53,8 +53,8 @@ public class TaskServiceImpl implements TaskService {
 //			
 //		}
 		
-		taskDao.save(task);
-		return true;
+		
+		return taskDao.save(task);
 	}
 
 	@Override
@@ -114,6 +114,12 @@ public class TaskServiceImpl implements TaskService {
 	public List<Task> findByProjectid(int projectId) {
 		// TODO Auto-generated method stub
 		return taskDao.findByProject_ProjectId(projectId);
+	}
+
+	@Override
+	public int countByCompleted(int projectId) {
+		// TODO Auto-generated method stub
+		return taskDao.countByCompleted(projectId);
 	}
 
 }
